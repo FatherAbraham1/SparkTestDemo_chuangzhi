@@ -1,0 +1,30 @@
+.flatMapToPair(new PairFlatMapFunction<Tuple2<String,String>, String, Long>() {
+
+					@Override
+					public Iterable<Tuple2<String, Long>> call(
+							Tuple2<String, String> t) throws Exception {
+						String userString="";
+						List<Long>list=new ArrayList<Long>();
+						//Iterator<Long> list = t._2();
+						String sp = "";
+						/*while (list.hasNext()) {
+							sp += list.next() + "|";
+						}*/
+						String[] time = sp.split("\\|");
+						long times = 0;
+
+						for (int i = time.length - 1; i >= 0; i--) {
+							// if (time.length > 3) {
+							if (i != 0) {
+								if (Math.abs(Long.parseLong(time[i])
+										- Long.parseLong(time[i - 1])) < 2 * 60) {
+									times += Math.abs(Long.parseLong(time[i])
+											- Long.parseLong(time[i - 1]));
+								}
+							}
+
+							// }
+						}
+						return (Iterable<Tuple2<String, Long>>) new Tuple2(_1, _2);
+					}
+				});
