@@ -1,0 +1,149 @@
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/hadoop/tools/spark1.4/lib/spark-assembly-1.4.0-hadoop2.6.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/hadoop/tools/spark1.4/lib/spark-examples-1.4.0-hadoop2.6.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
+16/04/14 19:14:19 INFO SparkContext: Running Spark version 1.4.0
+16/04/14 19:14:27 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+16/04/14 19:14:28 INFO SecurityManager: Changing view acls to: hadoop
+16/04/14 19:14:28 INFO SecurityManager: Changing modify acls to: hadoop
+16/04/14 19:14:28 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: Set(hadoop); users with modify permissions: Set(hadoop)
+16/04/14 19:14:36 INFO Slf4jLogger: Slf4jLogger started
+16/04/14 19:14:37 INFO Remoting: Starting remoting
+16/04/14 19:14:41 INFO Remoting: Remoting started; listening on addresses :[akka.tcp://sparkDriver@192.168.25.128:44548]
+16/04/14 19:14:41 INFO Utils: Successfully started service 'sparkDriver' on port 44548.
+16/04/14 19:14:41 INFO SparkEnv: Registering MapOutputTracker
+16/04/14 19:14:41 INFO SparkEnv: Registering BlockManagerMaster
+16/04/14 19:14:42 INFO DiskBlockManager: Created local directory at /tmp/spark-ae619943-a405-42a9-9640-d63810f6f30b/blockmgr-159d1b16-8d76-480e-b2b8-7e1b08163d52
+16/04/14 19:14:42 INFO MemoryStore: MemoryStore started with capacity 731.9 MB
+16/04/14 19:14:44 INFO HttpFileServer: HTTP File server directory is /tmp/spark-ae619943-a405-42a9-9640-d63810f6f30b/httpd-09dde5da-cef8-4c0a-9b97-3cb329034545
+16/04/14 19:14:44 INFO HttpServer: Starting HTTP Server
+16/04/14 19:14:44 INFO Utils: Successfully started service 'HTTP file server' on port 39646.
+16/04/14 19:14:44 INFO SparkEnv: Registering OutputCommitCoordinator
+16/04/14 19:14:45 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+16/04/14 19:14:46 INFO SparkUI: Started SparkUI at http://192.168.25.128:4040
+16/04/14 19:14:48 INFO AppClient$ClientActor: Connecting to master akka.tcp://sparkMaster@master:7077/user/Master...
+16/04/14 19:14:54 INFO SparkDeploySchedulerBackend: Connected to Spark cluster with app ID app-20160414191453-0000
+16/04/14 19:14:54 INFO AppClient$ClientActor: Executor added: app-20160414191453-0000/0 on worker-20160414190248-192.168.25.128-45954 (192.168.25.128:45954) with 1 cores
+16/04/14 19:14:54 INFO SparkDeploySchedulerBackend: Granted executor ID app-20160414191453-0000/0 on hostPort 192.168.25.128:45954 with 1 cores, 512.0 MB RAM
+16/04/14 19:14:56 INFO AppClient$ClientActor: Executor updated: app-20160414191453-0000/0 is now RUNNING
+16/04/14 19:14:56 INFO AppClient$ClientActor: Executor updated: app-20160414191453-0000/0 is now LOADING
+16/04/14 19:15:01 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 43713.
+16/04/14 19:15:01 INFO NettyBlockTransferService: Server created on 43713
+16/04/14 19:15:01 INFO BlockManagerMaster: Trying to register BlockManager
+16/04/14 19:15:01 INFO BlockManagerMasterEndpoint: Registering block manager 192.168.25.128:43713 with 731.9 MB RAM, BlockManagerId(driver, 192.168.25.128, 43713)
+16/04/14 19:15:01 INFO BlockManagerMaster: Registered BlockManager
+16/04/14 19:15:10 INFO SparkDeploySchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+16/04/14 19:16:19 INFO SparkDeploySchedulerBackend: Registered executor: AkkaRpcEndpointRef(Actor[akka.tcp://sparkExecutor@192.168.25.128:46090/user/Executor#1709673426]) with ID 0
+16/04/14 19:16:23 INFO BlockManagerMasterEndpoint: Registering block manager 192.168.25.128:37845 with 267.3 MB RAM, BlockManagerId(0, 192.168.25.128, 37845)
+16/04/14 19:16:56 INFO SparkContext: Added JAR /home/hadoop/tools/jars/1.jar at http://192.168.25.128:39646/jars/1.jar with timestamp 1460632616829
+16/04/14 19:16:56 INFO SparkContext: Running Spark version 1.4.0
+16/04/14 19:16:56 INFO SecurityManager: Changing view acls to: hadoop
+16/04/14 19:16:56 INFO SecurityManager: Changing modify acls to: hadoop
+16/04/14 19:16:56 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: Set(hadoop); users with modify permissions: Set(hadoop)
+16/04/14 19:16:57 INFO Slf4jLogger: Slf4jLogger started
+16/04/14 19:16:57 INFO Remoting: Starting remoting
+16/04/14 19:16:57 INFO Remoting: Remoting started; listening on addresses :[akka.tcp://sparkDriver@192.168.25.128:46761]
+16/04/14 19:16:57 INFO Utils: Successfully started service 'sparkDriver' on port 46761.
+16/04/14 19:16:57 INFO SparkEnv: Registering MapOutputTracker
+16/04/14 19:16:57 INFO SparkEnv: Registering BlockManagerMaster
+16/04/14 19:16:57 INFO DiskBlockManager: Created local directory at /tmp/spark-ae619943-a405-42a9-9640-d63810f6f30b/blockmgr-314496a6-9a5e-4035-aab2-30d5368221ba
+16/04/14 19:16:57 INFO MemoryStore: MemoryStore started with capacity 731.9 MB
+16/04/14 19:16:57 INFO HttpFileServer: HTTP File server directory is /tmp/spark-ae619943-a405-42a9-9640-d63810f6f30b/httpd-645443ca-1e6e-496c-bbe7-8c0761fa85ae
+16/04/14 19:16:57 INFO HttpServer: Starting HTTP Server
+16/04/14 19:16:57 INFO Utils: Successfully started service 'HTTP file server' on port 45676.
+16/04/14 19:16:57 INFO SparkEnv: Registering OutputCommitCoordinator
+16/04/14 19:16:57 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+16/04/14 19:16:58 INFO Utils: Successfully started service 'SparkUI' on port 4041.
+16/04/14 19:16:58 INFO SparkUI: Started SparkUI at http://192.168.25.128:4041
+16/04/14 19:16:58 INFO AppClient$ClientActor: Connecting to master akka.tcp://sparkMaster@master:7077/user/Master...
+16/04/14 19:16:58 INFO SparkDeploySchedulerBackend: Connected to Spark cluster with app ID app-20160414191658-0001
+16/04/14 19:16:58 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 35723.
+16/04/14 19:16:58 INFO NettyBlockTransferService: Server created on 35723
+16/04/14 19:16:58 INFO BlockManagerMaster: Trying to register BlockManager
+16/04/14 19:16:58 INFO BlockManagerMasterEndpoint: Registering block manager 192.168.25.128:35723 with 731.9 MB RAM, BlockManagerId(driver, 192.168.25.128, 35723)
+16/04/14 19:16:58 INFO BlockManagerMaster: Registered BlockManager
+16/04/14 19:16:58 INFO SparkDeploySchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+16/04/14 19:16:58 WARN SparkContext: Multiple running SparkContexts detected in the same JVM!
+org.apache.spark.SparkException: Only one SparkContext may be running in this JVM (see SPARK-2243). To ignore this error, set spark.driver.allowMultipleContexts = true. The currently running SparkContext was created at:
+org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:61)
+tutorial.Test_01.main(Test_01.java:15)
+	at org.apache.spark.SparkContext$$anonfun$assertNoOtherContextIsRunning$1.apply(SparkContext.scala:2083)
+	at org.apache.spark.SparkContext$$anonfun$assertNoOtherContextIsRunning$1.apply(SparkContext.scala:2065)
+	at scala.Option.foreach(Option.scala:236)
+	at org.apache.spark.SparkContext$.assertNoOtherContextIsRunning(SparkContext.scala:2065)
+	at org.apache.spark.SparkContext$.setActiveContext(SparkContext.scala:2151)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:2023)
+	at org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:61)
+	at tutorial.Ex0Wordcount.loadData(Ex0Wordcount.java:47)
+	at tutorial.Ex0Wordcount.wordcount(Ex0Wordcount.java:64)
+	at tutorial.Ex0Wordcount.filterOnWordcount(Ex0Wordcount.java:91)
+	at tutorial.Test_01.main(Test_01.java:19)
+16/04/14 19:17:03 INFO MemoryStore: ensureFreeSpace(130448) called with curMem=0, maxMem=767420006
+16/04/14 19:17:03 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 127.4 KB, free 731.7 MB)
+16/04/14 19:17:04 INFO MemoryStore: ensureFreeSpace(14257) called with curMem=130448, maxMem=767420006
+16/04/14 19:17:04 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 13.9 KB, free 731.7 MB)
+16/04/14 19:17:04 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 192.168.25.128:35723 (size: 13.9 KB, free: 731.9 MB)
+16/04/14 19:17:04 INFO SparkContext: Created broadcast 0 from textFile at Ex0Wordcount.java:50
+16/04/14 19:17:05 INFO FileInputFormat: Total input paths to process : 1
+16/04/14 19:17:07 INFO SparkContext: Starting job: collect at Ex0Wordcount.java:93
+16/04/14 19:17:07 INFO DAGScheduler: Registering RDD 3 (mapToPair at Ex0Wordcount.java:67)
+16/04/14 19:17:07 INFO DAGScheduler: Got job 0 (collect at Ex0Wordcount.java:93) with 2 output partitions (allowLocal=false)
+16/04/14 19:17:07 INFO DAGScheduler: Final stage: ResultStage 1(collect at Ex0Wordcount.java:93)
+16/04/14 19:17:07 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 0)
+16/04/14 19:17:07 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 0)
+16/04/14 19:17:07 INFO DAGScheduler: Submitting ShuffleMapStage 0 (MapPartitionsRDD[3] at mapToPair at Ex0Wordcount.java:67), which has no missing parents
+16/04/14 19:17:08 INFO MemoryStore: ensureFreeSpace(4800) called with curMem=144705, maxMem=767420006
+16/04/14 19:17:08 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 4.7 KB, free 731.7 MB)
+16/04/14 19:17:08 INFO MemoryStore: ensureFreeSpace(2699) called with curMem=149505, maxMem=767420006
+16/04/14 19:17:08 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 2.6 KB, free 731.7 MB)
+16/04/14 19:17:08 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 192.168.25.128:35723 (size: 2.6 KB, free: 731.9 MB)
+16/04/14 19:17:08 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:874
+16/04/14 19:17:09 INFO DAGScheduler: Submitting 2 missing tasks from ShuffleMapStage 0 (MapPartitionsRDD[3] at mapToPair at Ex0Wordcount.java:67)
+16/04/14 19:17:09 INFO TaskSchedulerImpl: Adding task set 0.0 with 2 tasks
+16/04/14 19:17:24 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:17:39 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:17:54 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:18:22 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:18:25 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:18:40 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:18:54 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:19:11 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:19:24 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:19:39 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:19:54 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:20:09 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:20:24 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:20:40 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:20:58 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:21:09 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:21:29 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:21:40 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:21:54 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:22:09 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:22:24 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:22:39 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:22:54 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:23:09 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:23:24 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:23:39 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:23:54 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:24:09 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:24:24 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:24:39 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:24:54 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:25:09 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:25:24 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:25:39 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:25:54 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:26:09 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:26:24 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:26:39 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:26:54 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:27:09 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:27:24 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:27:39 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:27:54 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:28:09 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources
+16/04/14 19:28:24 WARN TaskSchedulerImpl: Initial job has not accepted any resources; check your cluster UI to ensure that workers are registered and have sufficient resources

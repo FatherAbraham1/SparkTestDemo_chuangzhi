@@ -1,0 +1,206 @@
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/hadoop/tools/spark1.4/lib/spark-assembly-1.4.0-hadoop2.6.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/hadoop/tools/spark1.4/lib/spark-examples-1.4.0-hadoop2.6.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
+16/04/14 20:47:43 INFO SparkContext: Running Spark version 1.4.0
+16/04/14 20:47:45 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+16/04/14 20:47:45 INFO SecurityManager: Changing view acls to: hadoop
+16/04/14 20:47:45 INFO SecurityManager: Changing modify acls to: hadoop
+16/04/14 20:47:45 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: Set(hadoop); users with modify permissions: Set(hadoop)
+16/04/14 20:47:46 INFO Slf4jLogger: Slf4jLogger started
+16/04/14 20:47:46 INFO Remoting: Starting remoting
+16/04/14 20:47:47 INFO Remoting: Remoting started; listening on addresses :[akka.tcp://sparkDriver@192.168.25.128:38316]
+16/04/14 20:47:47 INFO Utils: Successfully started service 'sparkDriver' on port 38316.
+16/04/14 20:47:47 INFO SparkEnv: Registering MapOutputTracker
+16/04/14 20:47:47 INFO SparkEnv: Registering BlockManagerMaster
+16/04/14 20:47:47 INFO DiskBlockManager: Created local directory at /tmp/spark-e158b7a4-bf05-4456-a82f-3c670b48370d/blockmgr-be3b702b-7ec5-47b4-80da-fb59ccebf950
+16/04/14 20:47:47 INFO MemoryStore: MemoryStore started with capacity 415.5 MB
+16/04/14 20:47:47 INFO HttpFileServer: HTTP File server directory is /tmp/spark-e158b7a4-bf05-4456-a82f-3c670b48370d/httpd-f2ebb16a-ac39-40ba-b285-812728bc4632
+16/04/14 20:47:47 INFO HttpServer: Starting HTTP Server
+16/04/14 20:47:48 INFO Utils: Successfully started service 'HTTP file server' on port 36215.
+16/04/14 20:47:48 INFO SparkEnv: Registering OutputCommitCoordinator
+16/04/14 20:47:49 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+16/04/14 20:47:49 INFO SparkUI: Started SparkUI at http://192.168.25.128:4040
+16/04/14 20:47:49 INFO AppClient$ClientActor: Connecting to master akka.tcp://sparkMaster@master:7077/user/Master...
+16/04/14 20:47:50 INFO SparkDeploySchedulerBackend: Connected to Spark cluster with app ID app-20160414204750-0001
+16/04/14 20:47:50 INFO AppClient$ClientActor: Executor added: app-20160414204750-0001/0 on worker-20160414203614-192.168.25.128-36227 (192.168.25.128:36227) with 1 cores
+16/04/14 20:47:50 INFO SparkDeploySchedulerBackend: Granted executor ID app-20160414204750-0001/0 on hostPort 192.168.25.128:36227 with 1 cores, 512.0 MB RAM
+16/04/14 20:47:50 INFO AppClient$ClientActor: Executor updated: app-20160414204750-0001/0 is now LOADING
+16/04/14 20:47:50 INFO AppClient$ClientActor: Executor updated: app-20160414204750-0001/0 is now RUNNING
+16/04/14 20:47:51 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 45031.
+16/04/14 20:47:51 INFO NettyBlockTransferService: Server created on 45031
+16/04/14 20:47:51 INFO BlockManagerMaster: Trying to register BlockManager
+16/04/14 20:47:51 INFO BlockManagerMasterEndpoint: Registering block manager 192.168.25.128:45031 with 415.5 MB RAM, BlockManagerId(driver, 192.168.25.128, 45031)
+16/04/14 20:47:51 INFO BlockManagerMaster: Registered BlockManager
+16/04/14 20:47:53 INFO SparkDeploySchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+16/04/14 20:48:05 INFO SparkDeploySchedulerBackend: Registered executor: AkkaRpcEndpointRef(Actor[akka.tcp://sparkExecutor@192.168.25.128:42884/user/Executor#-335801250]) with ID 0
+16/04/14 20:48:07 INFO BlockManagerMasterEndpoint: Registering block manager 192.168.25.128:42381 with 267.3 MB RAM, BlockManagerId(0, 192.168.25.128, 42381)
+16/04/14 20:48:17 INFO SparkContext: Added JAR /home/hadoop/tools/jars/1.jar at http://192.168.25.128:36215/jars/1.jar with timestamp 1460638097081
+16/04/14 20:48:18 INFO MemoryStore: ensureFreeSpace(130448) called with curMem=0, maxMem=435714785
+16/04/14 20:48:18 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 127.4 KB, free 415.4 MB)
+16/04/14 20:48:19 INFO MemoryStore: ensureFreeSpace(14257) called with curMem=130448, maxMem=435714785
+16/04/14 20:48:19 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 13.9 KB, free 415.4 MB)
+16/04/14 20:48:19 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 192.168.25.128:45031 (size: 13.9 KB, free: 415.5 MB)
+16/04/14 20:48:19 INFO SparkContext: Created broadcast 0 from textFile at Ex0Wordcount.java:65
+16/04/14 20:48:20 INFO FileInputFormat: Total input paths to process : 1
+16/04/14 20:48:20 INFO SparkContext: Starting job: collect at Ex0Wordcount.java:108
+16/04/14 20:48:20 INFO DAGScheduler: Registering RDD 3 (mapToPair at Ex0Wordcount.java:82)
+16/04/14 20:48:20 INFO DAGScheduler: Got job 0 (collect at Ex0Wordcount.java:108) with 2 output partitions (allowLocal=false)
+16/04/14 20:48:20 INFO DAGScheduler: Final stage: ResultStage 1(collect at Ex0Wordcount.java:108)
+16/04/14 20:48:20 INFO DAGScheduler: Parents of final stage: List(ShuffleMapStage 0)
+16/04/14 20:48:20 INFO DAGScheduler: Missing parents: List(ShuffleMapStage 0)
+16/04/14 20:48:20 INFO DAGScheduler: Submitting ShuffleMapStage 0 (MapPartitionsRDD[3] at mapToPair at Ex0Wordcount.java:82), which has no missing parents
+16/04/14 20:48:20 INFO MemoryStore: ensureFreeSpace(4800) called with curMem=144705, maxMem=435714785
+16/04/14 20:48:20 INFO MemoryStore: Block broadcast_1 stored as values in memory (estimated size 4.7 KB, free 415.4 MB)
+16/04/14 20:48:20 INFO MemoryStore: ensureFreeSpace(2699) called with curMem=149505, maxMem=435714785
+16/04/14 20:48:20 INFO MemoryStore: Block broadcast_1_piece0 stored as bytes in memory (estimated size 2.6 KB, free 415.4 MB)
+16/04/14 20:48:20 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 192.168.25.128:45031 (size: 2.6 KB, free: 415.5 MB)
+16/04/14 20:48:20 INFO SparkContext: Created broadcast 1 from broadcast at DAGScheduler.scala:874
+16/04/14 20:48:20 INFO DAGScheduler: Submitting 2 missing tasks from ShuffleMapStage 0 (MapPartitionsRDD[3] at mapToPair at Ex0Wordcount.java:82)
+16/04/14 20:48:20 INFO TaskSchedulerImpl: Adding task set 0.0 with 2 tasks
+16/04/14 20:48:20 INFO TaskSetManager: Starting task 0.0 in stage 0.0 (TID 0, 192.168.25.128, PROCESS_LOCAL, 1468 bytes)
+16/04/14 20:48:47 INFO BlockManagerInfo: Added broadcast_1_piece0 in memory on 192.168.25.128:42381 (size: 2.6 KB, free: 267.3 MB)
+16/04/14 20:49:05 INFO TaskSetManager: Starting task 1.0 in stage 0.0 (TID 1, 192.168.25.128, PROCESS_LOCAL, 1468 bytes)
+16/04/14 20:49:06 WARN TaskSetManager: Lost task 1.0 in stage 0.0 (TID 1, 192.168.25.128): java.io.IOException: org.apache.spark.SparkException: Failed to get broadcast_1_piece0 of broadcast_1
+	at org.apache.spark.util.Utils$.tryOrIOException(Utils.scala:1257)
+	at org.apache.spark.broadcast.TorrentBroadcast.readBroadcastBlock(TorrentBroadcast.scala:165)
+	at org.apache.spark.broadcast.TorrentBroadcast._value$lzycompute(TorrentBroadcast.scala:64)
+	at org.apache.spark.broadcast.TorrentBroadcast._value(TorrentBroadcast.scala:64)
+	at org.apache.spark.broadcast.TorrentBroadcast.getValue(TorrentBroadcast.scala:88)
+	at org.apache.spark.broadcast.Broadcast.value(Broadcast.scala:70)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:62)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:41)
+	at org.apache.spark.scheduler.Task.run(Task.scala:70)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:213)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.apache.spark.SparkException: Failed to get broadcast_1_piece0 of broadcast_1
+	at org.apache.spark.broadcast.TorrentBroadcast$$anonfun$org$apache$spark$broadcast$TorrentBroadcast$$readBlocks$1$$anonfun$2.apply(TorrentBroadcast.scala:138)
+	at org.apache.spark.broadcast.TorrentBroadcast$$anonfun$org$apache$spark$broadcast$TorrentBroadcast$$readBlocks$1$$anonfun$2.apply(TorrentBroadcast.scala:138)
+	at scala.Option.getOrElse(Option.scala:120)
+	at org.apache.spark.broadcast.TorrentBroadcast$$anonfun$org$apache$spark$broadcast$TorrentBroadcast$$readBlocks$1.apply$mcVI$sp(TorrentBroadcast.scala:137)
+	at org.apache.spark.broadcast.TorrentBroadcast$$anonfun$org$apache$spark$broadcast$TorrentBroadcast$$readBlocks$1.apply(TorrentBroadcast.scala:120)
+	at org.apache.spark.broadcast.TorrentBroadcast$$anonfun$org$apache$spark$broadcast$TorrentBroadcast$$readBlocks$1.apply(TorrentBroadcast.scala:120)
+	at scala.collection.immutable.List.foreach(List.scala:318)
+	at org.apache.spark.broadcast.TorrentBroadcast.org$apache$spark$broadcast$TorrentBroadcast$$readBlocks(TorrentBroadcast.scala:120)
+	at org.apache.spark.broadcast.TorrentBroadcast$$anonfun$readBroadcastBlock$1.apply(TorrentBroadcast.scala:175)
+	at org.apache.spark.util.Utils$.tryOrIOException(Utils.scala:1254)
+	... 12 more
+
+16/04/14 20:49:06 INFO TaskSetManager: Starting task 1.1 in stage 0.0 (TID 2, 192.168.25.128, PROCESS_LOCAL, 1468 bytes)
+16/04/14 20:49:06 WARN TaskSetManager: Lost task 0.0 in stage 0.0 (TID 0, 192.168.25.128): java.io.IOException: org.apache.spark.SparkException: Failed to get broadcast_0_piece0 of broadcast_0
+	at org.apache.spark.util.Utils$.tryOrIOException(Utils.scala:1257)
+	at org.apache.spark.broadcast.TorrentBroadcast.readBroadcastBlock(TorrentBroadcast.scala:165)
+	at org.apache.spark.broadcast.TorrentBroadcast._value$lzycompute(TorrentBroadcast.scala:64)
+	at org.apache.spark.broadcast.TorrentBroadcast._value(TorrentBroadcast.scala:64)
+	at org.apache.spark.broadcast.TorrentBroadcast.getValue(TorrentBroadcast.scala:88)
+	at org.apache.spark.broadcast.Broadcast.value(Broadcast.scala:70)
+	at org.apache.spark.rdd.HadoopRDD.getJobConf(HadoopRDD.scala:144)
+	at org.apache.spark.rdd.HadoopRDD$$anon$1.<init>(HadoopRDD.scala:220)
+	at org.apache.spark.rdd.HadoopRDD.compute(HadoopRDD.scala:216)
+	at org.apache.spark.rdd.HadoopRDD.compute(HadoopRDD.scala:101)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:277)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:244)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:35)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:277)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:244)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:35)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:277)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:244)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:35)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:277)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:244)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:70)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:41)
+	at org.apache.spark.scheduler.Task.run(Task.scala:70)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:213)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.apache.spark.SparkException: Failed to get broadcast_0_piece0 of broadcast_0
+	at org.apache.spark.broadcast.TorrentBroadcast$$anonfun$org$apache$spark$broadcast$TorrentBroadcast$$readBlocks$1$$anonfun$2.apply(TorrentBroadcast.scala:138)
+	at org.apache.spark.broadcast.TorrentBroadcast$$anonfun$org$apache$spark$broadcast$TorrentBroadcast$$readBlocks$1$$anonfun$2.apply(TorrentBroadcast.scala:138)
+	at scala.Option.getOrElse(Option.scala:120)
+	at org.apache.spark.broadcast.TorrentBroadcast$$anonfun$org$apache$spark$broadcast$TorrentBroadcast$$readBlocks$1.apply$mcVI$sp(TorrentBroadcast.scala:137)
+	at org.apache.spark.broadcast.TorrentBroadcast$$anonfun$org$apache$spark$broadcast$TorrentBroadcast$$readBlocks$1.apply(TorrentBroadcast.scala:120)
+	at org.apache.spark.broadcast.TorrentBroadcast$$anonfun$org$apache$spark$broadcast$TorrentBroadcast$$readBlocks$1.apply(TorrentBroadcast.scala:120)
+	at scala.collection.immutable.List.foreach(List.scala:318)
+	at org.apache.spark.broadcast.TorrentBroadcast.org$apache$spark$broadcast$TorrentBroadcast$$readBlocks(TorrentBroadcast.scala:120)
+	at org.apache.spark.broadcast.TorrentBroadcast$$anonfun$readBroadcastBlock$1.apply(TorrentBroadcast.scala:175)
+	at org.apache.spark.util.Utils$.tryOrIOException(Utils.scala:1254)
+	... 27 more
+
+16/04/14 20:49:06 INFO TaskSetManager: Starting task 0.1 in stage 0.0 (TID 3, 192.168.25.128, PROCESS_LOCAL, 1468 bytes)
+16/04/14 20:49:06 INFO TaskSetManager: Lost task 1.1 in stage 0.0 (TID 2) on executor 192.168.25.128: java.io.IOException (org.apache.spark.SparkException: Failed to get broadcast_1_piece0 of broadcast_1) [duplicate 1]
+16/04/14 20:49:06 INFO TaskSetManager: Starting task 1.2 in stage 0.0 (TID 4, 192.168.25.128, PROCESS_LOCAL, 1468 bytes)
+16/04/14 20:49:06 INFO TaskSetManager: Lost task 1.2 in stage 0.0 (TID 4) on executor 192.168.25.128: java.io.IOException (org.apache.spark.SparkException: Failed to get broadcast_1_piece0 of broadcast_1) [duplicate 2]
+16/04/14 20:49:06 INFO TaskSetManager: Starting task 1.3 in stage 0.0 (TID 5, 192.168.25.128, PROCESS_LOCAL, 1468 bytes)
+16/04/14 20:49:06 INFO TaskSetManager: Lost task 0.1 in stage 0.0 (TID 3) on executor 192.168.25.128: java.io.IOException (org.apache.spark.SparkException: Failed to get broadcast_1_piece0 of broadcast_1) [duplicate 3]
+16/04/14 20:49:06 INFO TaskSetManager: Starting task 0.2 in stage 0.0 (TID 6, 192.168.25.128, PROCESS_LOCAL, 1468 bytes)
+16/04/14 20:49:06 INFO TaskSetManager: Lost task 1.3 in stage 0.0 (TID 5) on executor 192.168.25.128: java.io.IOException (org.apache.spark.SparkException: Failed to get broadcast_1_piece0 of broadcast_1) [duplicate 4]
+16/04/14 20:49:06 ERROR TaskSetManager: Task 1 in stage 0.0 failed 4 times; aborting job
+16/04/14 20:49:06 INFO TaskSetManager: Lost task 0.2 in stage 0.0 (TID 6) on executor 192.168.25.128: java.io.IOException (org.apache.spark.SparkException: Failed to get broadcast_1_piece0 of broadcast_1) [duplicate 5]
+16/04/14 20:49:06 INFO TaskSchedulerImpl: Removed TaskSet 0.0, whose tasks have all completed, from pool 
+16/04/14 20:49:06 INFO TaskSchedulerImpl: Cancelling stage 0
+16/04/14 20:49:06 INFO DAGScheduler: ShuffleMapStage 0 (mapToPair at Ex0Wordcount.java:82) failed in 45.825 s
+16/04/14 20:49:06 INFO DAGScheduler: Job 0 failed: collect at Ex0Wordcount.java:108, took 46.332948 s
+Exception in thread "main" org.apache.spark.SparkException: Job aborted due to stage failure: Task 1 in stage 0.0 failed 4 times, most recent failure: Lost task 1.3 in stage 0.0 (TID 5, 192.168.25.128): java.io.IOException: org.apache.spark.SparkException: Failed to get broadcast_1_piece0 of broadcast_1
+	at org.apache.spark.util.Utils$.tryOrIOException(Utils.scala:1257)
+	at org.apache.spark.broadcast.TorrentBroadcast.readBroadcastBlock(TorrentBroadcast.scala:165)
+	at org.apache.spark.broadcast.TorrentBroadcast._value$lzycompute(TorrentBroadcast.scala:64)
+	at org.apache.spark.broadcast.TorrentBroadcast._value(TorrentBroadcast.scala:64)
+	at org.apache.spark.broadcast.TorrentBroadcast.getValue(TorrentBroadcast.scala:88)
+	at org.apache.spark.broadcast.Broadcast.value(Broadcast.scala:70)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:62)
+	at org.apache.spark.scheduler.ShuffleMapTask.runTask(ShuffleMapTask.scala:41)
+	at org.apache.spark.scheduler.Task.run(Task.scala:70)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:213)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+Caused by: org.apache.spark.SparkException: Failed to get broadcast_1_piece0 of broadcast_1
+	at org.apache.spark.broadcast.TorrentBroadcast$$anonfun$org$apache$spark$broadcast$TorrentBroadcast$$readBlocks$1$$anonfun$2.apply(TorrentBroadcast.scala:138)
+	at org.apache.spark.broadcast.TorrentBroadcast$$anonfun$org$apache$spark$broadcast$TorrentBroadcast$$readBlocks$1$$anonfun$2.apply(TorrentBroadcast.scala:138)
+	at scala.Option.getOrElse(Option.scala:120)
+	at org.apache.spark.broadcast.TorrentBroadcast$$anonfun$org$apache$spark$broadcast$TorrentBroadcast$$readBlocks$1.apply$mcVI$sp(TorrentBroadcast.scala:137)
+	at org.apache.spark.broadcast.TorrentBroadcast$$anonfun$org$apache$spark$broadcast$TorrentBroadcast$$readBlocks$1.apply(TorrentBroadcast.scala:120)
+	at org.apache.spark.broadcast.TorrentBroadcast$$anonfun$org$apache$spark$broadcast$TorrentBroadcast$$readBlocks$1.apply(TorrentBroadcast.scala:120)
+	at scala.collection.immutable.List.foreach(List.scala:318)
+	at org.apache.spark.broadcast.TorrentBroadcast.org$apache$spark$broadcast$TorrentBroadcast$$readBlocks(TorrentBroadcast.scala:120)
+	at org.apache.spark.broadcast.TorrentBroadcast$$anonfun$readBroadcastBlock$1.apply(TorrentBroadcast.scala:175)
+	at org.apache.spark.util.Utils$.tryOrIOException(Utils.scala:1254)
+	... 12 more
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.org$apache$spark$scheduler$DAGScheduler$$failJobAndIndependentStages(DAGScheduler.scala:1266)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$abortStage$1.apply(DAGScheduler.scala:1257)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$abortStage$1.apply(DAGScheduler.scala:1256)
+	at scala.collection.mutable.ResizableArray$class.foreach(ResizableArray.scala:59)
+	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:47)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:1256)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$handleTaskSetFailed$1.apply(DAGScheduler.scala:730)
+	at org.apache.spark.scheduler.DAGScheduler$$anonfun$handleTaskSetFailed$1.apply(DAGScheduler.scala:730)
+	at scala.Option.foreach(Option.scala:236)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:730)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:1450)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:1411)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:48)
+16/04/14 20:49:06 INFO SparkContext: Invoking stop() from shutdown hook
+16/04/14 20:49:07 INFO SparkUI: Stopped Spark web UI at http://192.168.25.128:4040
+16/04/14 20:49:07 INFO DAGScheduler: Stopping DAGScheduler
+16/04/14 20:49:07 INFO SparkDeploySchedulerBackend: Shutting down all executors
+16/04/14 20:49:07 INFO SparkDeploySchedulerBackend: Asking each executor to shut down
+16/04/14 20:49:07 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+16/04/14 20:49:07 INFO Utils: path = /tmp/spark-e158b7a4-bf05-4456-a82f-3c670b48370d/blockmgr-be3b702b-7ec5-47b4-80da-fb59ccebf950, already present as root for deletion.
+16/04/14 20:49:07 INFO MemoryStore: MemoryStore cleared
+16/04/14 20:49:07 INFO BlockManager: BlockManager stopped
+16/04/14 20:49:07 INFO BlockManagerMaster: BlockManagerMaster stopped
+16/04/14 20:49:07 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+16/04/14 20:49:07 INFO SparkContext: Successfully stopped SparkContext
+16/04/14 20:49:07 INFO Utils: Shutdown hook called
+16/04/14 20:49:07 INFO RemoteActorRefProvider$RemotingTerminator: Shutting down remote daemon.
+16/04/14 20:49:08 INFO Utils: Deleting directory /tmp/spark-e158b7a4-bf05-4456-a82f-3c670b48370d
+16/04/14 20:49:08 INFO RemoteActorRefProvider$RemotingTerminator: Remote daemon shut down; proceeding with flushing remote transports.

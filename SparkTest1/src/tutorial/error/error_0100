@@ -1,0 +1,149 @@
+SLF4J: Class path contains multiple SLF4J bindings.
+SLF4J: Found binding in [jar:file:/home/hadoop/tools/spark1.4/lib/spark-assembly-1.4.0-hadoop2.6.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: Found binding in [jar:file:/home/hadoop/tools/spark1.4/lib/spark-examples-1.4.0-hadoop2.6.0.jar!/org/slf4j/impl/StaticLoggerBinder.class]
+SLF4J: See http://www.slf4j.org/codes.html#multiple_bindings for an explanation.
+SLF4J: Actual binding is of type [org.slf4j.impl.Log4jLoggerFactory]
+Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
+16/04/14 17:35:55 INFO SparkContext: Running Spark version 1.4.0
+16/04/14 17:35:58 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+16/04/14 17:35:59 INFO SecurityManager: Changing view acls to: hadoop
+16/04/14 17:35:59 INFO SecurityManager: Changing modify acls to: hadoop
+16/04/14 17:35:59 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: Set(hadoop); users with modify permissions: Set(hadoop)
+16/04/14 17:36:00 INFO Slf4jLogger: Slf4jLogger started
+16/04/14 17:36:01 INFO Remoting: Starting remoting
+16/04/14 17:36:02 INFO Remoting: Remoting started; listening on addresses :[akka.tcp://sparkDriver@192.168.25.128:40988]
+16/04/14 17:36:02 INFO Utils: Successfully started service 'sparkDriver' on port 40988.
+16/04/14 17:36:02 INFO SparkEnv: Registering MapOutputTracker
+16/04/14 17:36:02 INFO SparkEnv: Registering BlockManagerMaster
+16/04/14 17:36:03 INFO DiskBlockManager: Created local directory at /tmp/spark-aff9993e-58bd-4521-8b2b-3fcb17148022/blockmgr-052af799-ba85-432b-aeee-a2853f0a263d
+16/04/14 17:36:03 INFO MemoryStore: MemoryStore started with capacity 552.3 MB
+16/04/14 17:36:03 INFO HttpFileServer: HTTP File server directory is /tmp/spark-aff9993e-58bd-4521-8b2b-3fcb17148022/httpd-93bb7223-39bb-45dd-9159-154dd6dacf4d
+16/04/14 17:36:03 INFO HttpServer: Starting HTTP Server
+16/04/14 17:36:04 INFO Utils: Successfully started service 'HTTP file server' on port 39227.
+16/04/14 17:36:04 INFO SparkEnv: Registering OutputCommitCoordinator
+16/04/14 17:36:15 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+16/04/14 17:36:15 INFO SparkUI: Started SparkUI at http://192.168.25.128:4040
+16/04/14 17:36:15 INFO AppClient$ClientActor: Connecting to master akka.tcp://sparkMaster@master:7077/user/Master...
+16/04/14 17:36:17 INFO SparkDeploySchedulerBackend: Connected to Spark cluster with app ID app-20160414173617-0005
+16/04/14 17:36:17 INFO AppClient$ClientActor: Executor added: app-20160414173617-0005/0 on worker-20160414151739-192.168.25.128-46181 (192.168.25.128:46181) with 1 cores
+16/04/14 17:36:17 INFO SparkDeploySchedulerBackend: Granted executor ID app-20160414173617-0005/0 on hostPort 192.168.25.128:46181 with 1 cores, 512.0 MB RAM
+16/04/14 17:36:18 INFO AppClient$ClientActor: Executor updated: app-20160414173617-0005/0 is now LOADING
+16/04/14 17:36:18 INFO AppClient$ClientActor: Executor updated: app-20160414173617-0005/0 is now RUNNING
+16/04/14 17:36:20 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 43670.
+16/04/14 17:36:20 INFO NettyBlockTransferService: Server created on 43670
+16/04/14 17:36:20 INFO BlockManagerMaster: Trying to register BlockManager
+16/04/14 17:36:20 INFO BlockManagerMasterEndpoint: Registering block manager 192.168.25.128:43670 with 552.3 MB RAM, BlockManagerId(driver, 192.168.25.128, 43670)
+16/04/14 17:36:20 INFO BlockManagerMaster: Registered BlockManager
+16/04/14 17:36:23 INFO SparkDeploySchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+16/04/14 17:36:24 INFO SparkContext: Running Spark version 1.4.0
+16/04/14 17:36:24 INFO SecurityManager: Changing view acls to: hadoop
+16/04/14 17:36:24 INFO SecurityManager: Changing modify acls to: hadoop
+16/04/14 17:36:24 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: Set(hadoop); users with modify permissions: Set(hadoop)
+16/04/14 17:36:24 INFO Slf4jLogger: Slf4jLogger started
+16/04/14 17:36:24 INFO Remoting: Starting remoting
+16/04/14 17:36:24 INFO Remoting: Remoting started; listening on addresses :[akka.tcp://sparkDriver@192.168.25.128:40142]
+16/04/14 17:36:25 INFO Utils: Successfully started service 'sparkDriver' on port 40142.
+16/04/14 17:36:25 INFO SparkEnv: Registering MapOutputTracker
+16/04/14 17:36:25 INFO SparkEnv: Registering BlockManagerMaster
+16/04/14 17:36:25 INFO DiskBlockManager: Created local directory at /tmp/spark-aff9993e-58bd-4521-8b2b-3fcb17148022/blockmgr-16daac50-5268-4411-b4bf-1261cd40abba
+16/04/14 17:36:25 INFO MemoryStore: MemoryStore started with capacity 552.3 MB
+16/04/14 17:36:25 INFO HttpFileServer: HTTP File server directory is /tmp/spark-aff9993e-58bd-4521-8b2b-3fcb17148022/httpd-c35ef1f1-77d5-4eed-8340-6e0ad6df69b6
+16/04/14 17:36:25 INFO HttpServer: Starting HTTP Server
+16/04/14 17:36:26 INFO Utils: Successfully started service 'HTTP file server' on port 36360.
+16/04/14 17:36:26 INFO SparkEnv: Registering OutputCommitCoordinator
+16/04/14 17:36:31 WARN Utils: Service 'SparkUI' could not bind on port 4040. Attempting port 4041.
+16/04/14 17:36:32 INFO Utils: Successfully started service 'SparkUI' on port 4041.
+16/04/14 17:36:32 INFO SparkUI: Started SparkUI at http://192.168.25.128:4041
+16/04/14 17:36:32 INFO AppClient$ClientActor: Connecting to master akka.tcp://sparkMaster@master:7077/user/Master...
+16/04/14 17:36:32 WARN AppClient$ClientActor: Could not connect to akka.tcp://sparkMaster@master:7077: akka.remote.EndpointAssociationException: Association failed with [akka.tcp://sparkMaster@master:7077]
+16/04/14 17:36:32 WARN ReliableDeliverySupervisor: Association with remote system [akka.tcp://sparkMaster@master:7077] has failed, address is now gated for [5000] ms. Reason is: [Association failed with [akka.tcp://sparkMaster@master:7077]].
+16/04/14 17:36:51 INFO SparkDeploySchedulerBackend: Registered executor: AkkaRpcEndpointRef(Actor[akka.tcp://sparkExecutor@192.168.25.128:38560/user/Executor#970512801]) with ID 0
+16/04/14 17:36:52 INFO BlockManagerMasterEndpoint: Registering block manager 192.168.25.128:34905 with 267.3 MB RAM, BlockManagerId(0, 192.168.25.128, 34905)
+16/04/14 17:36:52 INFO AppClient$ClientActor: Connecting to master akka.tcp://sparkMaster@master:7077/user/Master...
+16/04/14 17:36:52 INFO SparkDeploySchedulerBackend: Connected to Spark cluster with app ID app-20160414173652-0006
+16/04/14 17:36:52 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 39455.
+16/04/14 17:36:52 INFO NettyBlockTransferService: Server created on 39455
+16/04/14 17:36:52 INFO BlockManagerMaster: Trying to register BlockManager
+16/04/14 17:36:52 INFO BlockManagerMasterEndpoint: Registering block manager 192.168.25.128:39455 with 552.3 MB RAM, BlockManagerId(driver, 192.168.25.128, 39455)
+16/04/14 17:36:52 INFO BlockManagerMaster: Registered BlockManager
+16/04/14 17:36:52 INFO SparkDeploySchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+16/04/14 17:36:52 WARN SparkContext: Multiple running SparkContexts detected in the same JVM!
+org.apache.spark.SparkException: Only one SparkContext may be running in this JVM (see SPARK-2243). To ignore this error, set spark.driver.allowMultipleContexts = true. The currently running SparkContext was created at:
+org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:61)
+tutorial.Test_01.main(Test_01.java:15)
+	at org.apache.spark.SparkContext$$anonfun$assertNoOtherContextIsRunning$1.apply(SparkContext.scala:2083)
+	at org.apache.spark.SparkContext$$anonfun$assertNoOtherContextIsRunning$1.apply(SparkContext.scala:2065)
+	at scala.Option.foreach(Option.scala:236)
+	at org.apache.spark.SparkContext$.assertNoOtherContextIsRunning(SparkContext.scala:2065)
+	at org.apache.spark.SparkContext$.setActiveContext(SparkContext.scala:2151)
+	at org.apache.spark.SparkContext.<init>(SparkContext.scala:2023)
+	at org.apache.spark.api.java.JavaSparkContext.<init>(JavaSparkContext.scala:61)
+	at tutorial.Ex0Wordcount.loadData(Ex0Wordcount.java:38)
+	at tutorial.Ex0Wordcount.wordcount(Ex0Wordcount.java:54)
+	at tutorial.Ex0Wordcount.filterOnWordcount(Ex0Wordcount.java:81)
+	at tutorial.Test_01.main(Test_01.java:19)
+16/04/14 17:36:55 INFO MemoryStore: ensureFreeSpace(130448) called with curMem=0, maxMem=579112796
+16/04/14 17:36:55 INFO MemoryStore: Block broadcast_0 stored as values in memory (estimated size 127.4 KB, free 552.2 MB)
+16/04/14 17:36:55 INFO MemoryStore: ensureFreeSpace(14257) called with curMem=130448, maxMem=579112796
+16/04/14 17:36:55 INFO MemoryStore: Block broadcast_0_piece0 stored as bytes in memory (estimated size 13.9 KB, free 552.1 MB)
+16/04/14 17:36:55 INFO BlockManagerInfo: Added broadcast_0_piece0 in memory on 192.168.25.128:39455 (size: 13.9 KB, free: 552.3 MB)
+16/04/14 17:36:55 INFO SparkContext: Created broadcast 0 from textFile at Ex0Wordcount.java:40
+Exception in thread "main" org.apache.spark.SparkException: Task not serializable
+	at org.apache.spark.util.ClosureCleaner$.ensureSerializable(ClosureCleaner.scala:315)
+	at org.apache.spark.util.ClosureCleaner$.org$apache$spark$util$ClosureCleaner$$clean(ClosureCleaner.scala:305)
+	at org.apache.spark.util.ClosureCleaner$.clean(ClosureCleaner.scala:132)
+	at org.apache.spark.SparkContext.clean(SparkContext.scala:1891)
+	at org.apache.spark.rdd.RDD$$anonfun$flatMap$1.apply(RDD.scala:303)
+	at org.apache.spark.rdd.RDD$$anonfun$flatMap$1.apply(RDD.scala:302)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:148)
+	at org.apache.spark.rdd.RDDOperationScope$.withScope(RDDOperationScope.scala:109)
+	at org.apache.spark.rdd.RDD.withScope(RDD.scala:286)
+	at org.apache.spark.rdd.RDD.flatMap(RDD.scala:302)
+	at org.apache.spark.api.java.JavaRDDLike$class.flatMap(JavaRDDLike.scala:124)
+	at org.apache.spark.api.java.AbstractJavaRDDLike.flatMap(JavaRDDLike.scala:47)
+	at tutorial.Ex0Wordcount.loadData(Ex0Wordcount.java:40)
+	at tutorial.Ex0Wordcount.wordcount(Ex0Wordcount.java:54)
+	at tutorial.Ex0Wordcount.filterOnWordcount(Ex0Wordcount.java:81)
+	at tutorial.Test_01.main(Test_01.java:19)
+Caused by: java.io.NotSerializableException: tutorial.Ex0Wordcount
+Serialization stack:
+	- object not serializable (class: tutorial.Ex0Wordcount, value: tutorial.Ex0Wordcount@10bea4)
+	- field (class: tutorial.Ex0Wordcount$1, name: this$0, type: class tutorial.Ex0Wordcount)
+	- object (class tutorial.Ex0Wordcount$1, tutorial.Ex0Wordcount$1@19962194)
+	- field (class: org.apache.spark.api.java.JavaRDDLike$$anonfun$fn$1$1, name: f$3, type: interface org.apache.spark.api.java.function.FlatMapFunction)
+	- object (class org.apache.spark.api.java.JavaRDDLike$$anonfun$fn$1$1, <function1>)
+	at org.apache.spark.serializer.SerializationDebugger$.improveException(SerializationDebugger.scala:40)
+	at org.apache.spark.serializer.JavaSerializationStream.writeObject(JavaSerializer.scala:47)
+	at org.apache.spark.serializer.JavaSerializerInstance.serialize(JavaSerializer.scala:81)
+	at org.apache.spark.util.ClosureCleaner$.ensureSerializable(ClosureCleaner.scala:312)
+	... 15 more
+16/04/14 17:36:55 INFO SparkContext: Invoking stop() from shutdown hook
+16/04/14 17:36:55 INFO SparkUI: Stopped Spark web UI at http://192.168.25.128:4040
+16/04/14 17:36:55 INFO DAGScheduler: Stopping DAGScheduler
+16/04/14 17:36:55 INFO SparkDeploySchedulerBackend: Shutting down all executors
+16/04/14 17:36:55 INFO SparkDeploySchedulerBackend: Asking each executor to shut down
+16/04/14 17:36:56 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+16/04/14 17:36:56 INFO Utils: path = /tmp/spark-aff9993e-58bd-4521-8b2b-3fcb17148022/blockmgr-052af799-ba85-432b-aeee-a2853f0a263d, already present as root for deletion.
+16/04/14 17:36:56 INFO MemoryStore: MemoryStore cleared
+16/04/14 17:36:56 INFO BlockManager: BlockManager stopped
+16/04/14 17:36:56 INFO BlockManagerMaster: BlockManagerMaster stopped
+16/04/14 17:36:56 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+16/04/14 17:36:56 INFO SparkContext: Successfully stopped SparkContext
+16/04/14 17:36:56 INFO SparkContext: Invoking stop() from shutdown hook
+16/04/14 17:36:56 INFO RemoteActorRefProvider$RemotingTerminator: Shutting down remote daemon.
+16/04/14 17:36:56 INFO RemoteActorRefProvider$RemotingTerminator: Remote daemon shut down; proceeding with flushing remote transports.
+16/04/14 17:36:56 INFO SparkUI: Stopped Spark web UI at http://192.168.25.128:4041
+16/04/14 17:36:56 INFO DAGScheduler: Stopping DAGScheduler
+16/04/14 17:36:56 INFO SparkDeploySchedulerBackend: Shutting down all executors
+16/04/14 17:36:56 INFO SparkDeploySchedulerBackend: Asking each executor to shut down
+16/04/14 17:36:56 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+16/04/14 17:36:56 INFO Utils: path = /tmp/spark-aff9993e-58bd-4521-8b2b-3fcb17148022/blockmgr-16daac50-5268-4411-b4bf-1261cd40abba, already present as root for deletion.
+16/04/14 17:36:56 INFO MemoryStore: MemoryStore cleared
+16/04/14 17:36:56 INFO BlockManager: BlockManager stopped
+16/04/14 17:36:56 INFO BlockManagerMaster: BlockManagerMaster stopped
+16/04/14 17:36:56 INFO SparkContext: Successfully stopped SparkContext
+16/04/14 17:36:56 INFO Utils: Shutdown hook called
+16/04/14 17:36:56 INFO Utils: Deleting directory /tmp/spark-aff9993e-58bd-4521-8b2b-3fcb17148022
+16/04/14 17:36:56 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+16/04/14 17:36:56 INFO RemoteActorRefProvider$RemotingTerminator: Shutting down remote daemon.
+16/04/14 17:36:56 INFO RemoteActorRefProvider$RemotingTerminator: Remote daemon shut down; proceeding with flushing remote transports.

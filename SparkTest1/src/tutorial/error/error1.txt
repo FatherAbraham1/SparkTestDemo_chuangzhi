@@ -1,0 +1,71 @@
+Using Spark's default log4j profile: org/apache/spark/log4j-defaults.properties
+16/04/14 16:28:09 INFO SparkContext: Running Spark version 1.4.0
+16/04/14 16:28:11 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+16/04/14 16:28:13 INFO SecurityManager: Changing view acls to: hadoop
+16/04/14 16:28:13 INFO SecurityManager: Changing modify acls to: hadoop
+16/04/14 16:28:13 INFO SecurityManager: SecurityManager: authentication disabled; ui acls disabled; users with view permissions: Set(hadoop); users with modify permissions: Set(hadoop)
+16/04/14 16:28:17 INFO Slf4jLogger: Slf4jLogger started
+16/04/14 16:28:17 INFO Remoting: Starting remoting
+16/04/14 16:28:18 INFO Remoting: Remoting started; listening on addresses :[akka.tcp://sparkDriver@192.168.25.128:42626]
+16/04/14 16:28:18 INFO Utils: Successfully started service 'sparkDriver' on port 42626.
+16/04/14 16:28:18 INFO SparkEnv: Registering MapOutputTracker
+16/04/14 16:28:18 INFO SparkEnv: Registering BlockManagerMaster
+16/04/14 16:28:19 INFO DiskBlockManager: Created local directory at /tmp/spark-0eeeb0bd-8e94-47f1-b5ad-8999beae2374/blockmgr-9f13ace2-f2cf-4def-99c9-c95747ac5560
+16/04/14 16:28:19 INFO MemoryStore: MemoryStore started with capacity 552.3 MB
+16/04/14 16:28:19 INFO HttpFileServer: HTTP File server directory is /tmp/spark-0eeeb0bd-8e94-47f1-b5ad-8999beae2374/httpd-ac627014-adc4-4808-bcf2-295485c0752e
+16/04/14 16:28:19 INFO HttpServer: Starting HTTP Server
+16/04/14 16:28:19 INFO Utils: Successfully started service 'HTTP file server' on port 43902.
+16/04/14 16:28:19 INFO SparkEnv: Registering OutputCommitCoordinator
+16/04/14 16:28:20 INFO Utils: Successfully started service 'SparkUI' on port 4040.
+16/04/14 16:28:20 INFO SparkUI: Started SparkUI at http://192.168.25.128:4040
+16/04/14 16:28:21 INFO AppClient$ClientActor: Connecting to master akka.tcp://sparkMaster@master:7077/user/Master...
+16/04/14 16:28:24 INFO SparkDeploySchedulerBackend: Connected to Spark cluster with app ID app-20160414162823-0000
+16/04/14 16:28:24 INFO AppClient$ClientActor: Executor added: app-20160414162823-0000/0 on worker-20160414151739-192.168.25.128-46181 (192.168.25.128:46181) with 1 cores
+16/04/14 16:28:24 INFO SparkDeploySchedulerBackend: Granted executor ID app-20160414162823-0000/0 on hostPort 192.168.25.128:46181 with 1 cores, 512.0 MB RAM
+16/04/14 16:28:24 INFO AppClient$ClientActor: Executor updated: app-20160414162823-0000/0 is now RUNNING
+16/04/14 16:28:25 INFO Utils: Successfully started service 'org.apache.spark.network.netty.NettyBlockTransferService' on port 36306.
+16/04/14 16:28:25 INFO NettyBlockTransferService: Server created on 36306
+16/04/14 16:28:25 INFO BlockManagerMaster: Trying to register BlockManager
+16/04/14 16:28:25 INFO BlockManagerMasterEndpoint: Registering block manager 192.168.25.128:36306 with 552.3 MB RAM, BlockManagerId(driver, 192.168.25.128, 36306)
+16/04/14 16:28:25 INFO BlockManagerMaster: Registered BlockManager
+16/04/14 16:28:25 INFO AppClient$ClientActor: Executor updated: app-20160414162823-0000/0 is now LOADING
+16/04/14 16:28:29 INFO SparkDeploySchedulerBackend: SchedulerBackend is ready for scheduling beginning after reached minRegisteredResourcesRatio: 0.0
+16/04/14 16:29:39 INFO SparkContext: Added JAR /home/hadoop/tools/jars/1.jar at http://192.168.25.128:43902/jars/1.jar with timestamp 1460622579517
+Exception in thread "main" java.lang.VerifyError: class com.fasterxml.jackson.module.scala.ser.ScalaIteratorSerializer overrides final method withResolved.(Lcom/fasterxml/jackson/databind/BeanProperty;Lcom/fasterxml/jackson/databind/jsontype/TypeSerializer;Lcom/fasterxml/jackson/databind/JsonSerializer;)Lcom/fasterxml/jackson/databind/ser/std/AsArraySerializerBase;
+	at java.lang.ClassLoader.defineClass1(Native Method)
+	at java.lang.ClassLoader.defineClass(ClassLoader.java:760)
+	at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:142)
+	at java.net.URLClassLoader.defineClass(URLClassLoader.java:467)
+	at java.net.URLClassLoader.access$100(URLClassLoader.java:73)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:368)
+	at java.net.URLClassLoader$1.run(URLClassLoader.java:362)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.net.URLClassLoader.findClass(URLClassLoader.java:361)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:424)
+	at sun.misc.Launcher$AppClassLoader.loadClass(Launcher.java:331)
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
+	at com.fasterxml.jackson.module.scala.ser.IteratorSerializerModule$class.$init$(IteratorSerializerModule.scala:70)
+	at com.fasterxml.jackson.module.scala.DefaultScalaModule.<init>(DefaultScalaModule.scala:19)
+	at com.fasterxml.jackson.module.scala.DefaultScalaModule$.<init>(DefaultScalaModule.scala:35)
+	at com.fasterxml.jackson.module.scala.DefaultScalaModule$.<clinit>(DefaultScalaModule.scala)
+	at org.apache.spark.rdd.RDDOperationScope$.<init>(RDDOperationScope.scala:78)
+	at org.apache.spark.rdd.RDDOperationScope$.<clinit>(RDDOperationScope.scala)
+	at org.apache.spark.SparkContext.withScope(SparkContext.scala:681)
+	at org.apache.spark.SparkContext.parallelize(SparkContext.scala:695)
+	at org.apache.spark.api.java.JavaSparkContext.parallelize(JavaSparkContext.scala:145)
+	at org.apache.spark.api.java.JavaSparkContext.parallelize(JavaSparkContext.scala:157)
+	at tutorial.Test.main(Test.java:20)
+16/04/14 16:29:41 INFO SparkContext: Invoking stop() from shutdown hook
+16/04/14 16:29:42 INFO SparkUI: Stopped Spark web UI at http://192.168.25.128:4040
+16/04/14 16:29:42 INFO DAGScheduler: Stopping DAGScheduler
+16/04/14 16:29:42 INFO SparkDeploySchedulerBackend: Shutting down all executors
+16/04/14 16:29:42 INFO SparkDeploySchedulerBackend: Asking each executor to shut down
+16/04/14 16:29:42 INFO MapOutputTrackerMasterEndpoint: MapOutputTrackerMasterEndpoint stopped!
+16/04/14 16:29:42 INFO Utils: path = /tmp/spark-0eeeb0bd-8e94-47f1-b5ad-8999beae2374/blockmgr-9f13ace2-f2cf-4def-99c9-c95747ac5560, already present as root for deletion.
+16/04/14 16:29:42 INFO MemoryStore: MemoryStore cleared
+16/04/14 16:29:42 INFO BlockManager: BlockManager stopped
+16/04/14 16:29:42 INFO BlockManagerMaster: BlockManagerMaster stopped
+16/04/14 16:29:42 INFO OutputCommitCoordinator$OutputCommitCoordinatorEndpoint: OutputCommitCoordinator stopped!
+16/04/14 16:29:42 INFO SparkContext: Successfully stopped SparkContext
+16/04/14 16:29:42 INFO Utils: Shutdown hook called
+16/04/14 16:29:42 INFO Utils: Deleting directory /tmp/spark-0eeeb0bd-8e94-47f1-b5ad-8999beae2374
