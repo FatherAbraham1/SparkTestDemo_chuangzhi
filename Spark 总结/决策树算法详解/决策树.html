@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>决策树</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 25px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 16px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<style type="text/css">
+.highlight  { background: #ffffff; }
+.highlight .c { color: #999988; font-style: italic } /* Comment */
+.highlight .err { color: #a61717; background-color: #e3d2d2 } /* Error */
+.highlight .k { font-weight: bold } /* Keyword */
+.highlight .o { font-weight: bold } /* Operator */
+.highlight .cm { color: #999988; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #999999; font-weight: bold } /* Comment.Preproc */
+.highlight .c1 { color: #999988; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #999999; font-weight: bold; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #000000; background-color: #ffdddd } /* Generic.Deleted */
+.highlight .gd .x { color: #000000; background-color: #ffaaaa } /* Generic.Deleted.Specific */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #aa0000 } /* Generic.Error */
+.highlight .gh { color: #999999 } /* Generic.Heading */
+.highlight .gi { color: #000000; background-color: #ddffdd } /* Generic.Inserted */
+.highlight .gi .x { color: #000000; background-color: #aaffaa } /* Generic.Inserted.Specific */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #555555 } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #aaaaaa } /* Generic.Subheading */
+.highlight .gt { color: #aa0000 } /* Generic.Traceback */
+.highlight .kc { font-weight: bold } /* Keyword.Constant */
+.highlight .kd { font-weight: bold } /* Keyword.Declaration */
+.highlight .kp { font-weight: bold } /* Keyword.Pseudo */
+.highlight .kr { font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #445588; font-weight: bold } /* Keyword.Type */
+.highlight .m { color: #009999 } /* Literal.Number */
+.highlight .s { color: #d14 } /* Literal.String */
+.highlight .na { color: #008080 } /* Name.Attribute */
+.highlight .nb { color: #0086B3 } /* Name.Builtin */
+.highlight .nc { color: #445588; font-weight: bold } /* Name.Class */
+.highlight .no { color: #008080 } /* Name.Constant */
+.highlight .ni { color: #800080 } /* Name.Entity */
+.highlight .ne { color: #990000; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #990000; font-weight: bold } /* Name.Function */
+.highlight .nn { color: #555555 } /* Name.Namespace */
+.highlight .nt { color: #000080 } /* Name.Tag */
+.highlight .nv { color: #008080 } /* Name.Variable */
+.highlight .ow { font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mf { color: #009999 } /* Literal.Number.Float */
+.highlight .mh { color: #009999 } /* Literal.Number.Hex */
+.highlight .mi { color: #009999 } /* Literal.Number.Integer */
+.highlight .mo { color: #009999 } /* Literal.Number.Oct */
+.highlight .sb { color: #d14 } /* Literal.String.Backtick */
+.highlight .sc { color: #d14 } /* Literal.String.Char */
+.highlight .sd { color: #d14 } /* Literal.String.Doc */
+.highlight .s2 { color: #d14 } /* Literal.String.Double */
+.highlight .se { color: #d14 } /* Literal.String.Escape */
+.highlight .sh { color: #d14 } /* Literal.String.Heredoc */
+.highlight .si { color: #d14 } /* Literal.String.Interpol */
+.highlight .sx { color: #d14 } /* Literal.String.Other */
+.highlight .sr { color: #009926 } /* Literal.String.Regex */
+.highlight .s1 { color: #d14 } /* Literal.String.Single */
+.highlight .ss { color: #990073 } /* Literal.String.Symbol */
+.highlight .bp { color: #999999 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #008080 } /* Name.Variable.Class */
+.highlight .vg { color: #008080 } /* Name.Variable.Global */
+.highlight .vi { color: #008080 } /* Name.Variable.Instance */
+.highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
+.pl-c {
+    color: #969896;
+}
+
+.pl-c1,.pl-mdh,.pl-mm,.pl-mp,.pl-mr,.pl-s1 .pl-v,.pl-s3,.pl-sc,.pl-sv {
+    color: #0086b3;
+}
+
+.pl-e,.pl-en {
+    color: #795da3;
+}
+
+.pl-s1 .pl-s2,.pl-smi,.pl-smp,.pl-stj,.pl-vo,.pl-vpf {
+    color: #333;
+}
+
+.pl-ent {
+    color: #63a35c;
+}
+
+.pl-k,.pl-s,.pl-st {
+    color: #a71d5d;
+}
+
+.pl-pds,.pl-s1,.pl-s1 .pl-pse .pl-s2,.pl-sr,.pl-sr .pl-cce,.pl-sr .pl-sra,.pl-sr .pl-sre,.pl-src,.pl-v {
+    color: #df5000;
+}
+
+.pl-id {
+    color: #b52a1d;
+}
+
+.pl-ii {
+    background-color: #b52a1d;
+    color: #f8f8f8;
+}
+
+.pl-sr .pl-cce {
+    color: #63a35c;
+    font-weight: bold;
+}
+
+.pl-ml {
+    color: #693a17;
+}
+
+.pl-mh,.pl-mh .pl-en,.pl-ms {
+    color: #1d3e81;
+    font-weight: bold;
+}
+
+.pl-mq {
+    color: #008080;
+}
+
+.pl-mi {
+    color: #333;
+    font-style: italic;
+}
+
+.pl-mb {
+    color: #333;
+    font-weight: bold;
+}
+
+.pl-md,.pl-mdhf {
+    background-color: #ffecec;
+    color: #bd2c00;
+}
+
+.pl-mdht,.pl-mi1 {
+    background-color: #eaffea;
+    color: #55a532;
+}
+
+.pl-mdr {
+    color: #795da3;
+    font-weight: bold;
+}
+
+.pl-mo {
+    color: #1d3e81;
+}
+.task-list {
+padding-left:10px;
+margin-bottom:0;
+}
+
+.task-list li {
+    margin-left: 20px;
+}
+
+.task-list-item {
+list-style-type:none;
+padding-left:10px;
+}
+
+.task-list-item label {
+font-weight:400;
+}
+
+.task-list-item.enabled label {
+cursor:pointer;
+}
+
+.task-list-item+.task-list-item {
+margin-top:3px;
+}
+
+.task-list-item-checkbox {
+display:inline-block;
+margin-left:-20px;
+margin-right:3px;
+vertical-align:1px;
+}
+</style>
+</head>
+<body>
+<h2>决策树算法详解</h2>
+
+<p>    决策树也是常用的分类算法之一,与其它分类算法相比具有分类精度高,生成模型简单,不用预先了解模型的特征等优点.决策树算法有ID3,C4.5,CART等几种,一个决策树包含三种类型的节点： 1.决策节点——通常用矩形框来表式 2.机会节点——通常用圆圈来表式 3.终结点——通常用三角形来表示,如下图:<br>
+<br></p><a href="J1.png" target="_blank"><img src="J1.png" alt="" style="max-width:100%;"></a><br>
+<br>    为了直观起见,大家可以去玩一款游戏-<a href="http://cn.akinator.com/">网络天才(akinator)</a>,这个游戏是通过询问一些问题来猜出你心中所想的人,准确率非常高,是不是很神奇呢?它的原理就类似决策树,建立一个树模型,通过一个个的问题来一步步的排除其余的人,最终猜出你心中所想的人.比如现在我们就来模拟一下.<br>
+我们通过一段对话来判断对方是否适合交往.<p></p>
+
+<p></p>是否有过婚史? no<br>
+是否有房子? yes<br>
+是否有车? yes<br>
+能不能接受异地恋? yes<br>
+那我们交往嘛.<p></p>
+
+<p>这个就利用了决策树的思想,通过对节点的不同的选择决策得到不同的结果.我们把这个转换为决策树模型看看.<br>
+<br><a href="J3.png" target="_blank"><img src="J3.png" alt="" style="max-width:100%;"></a></p>
+
+<p>    决策树算法就是为了解决这个问题,在大家玩akinator游戏的时候应该会发现,在游戏开始的前几个问题一般都是你描述的对象真实存在吗?你描述的对象是女性吗?等等这些问题,这些在一开始就会筛选掉一大半的人物,如果把这些问题放在后面的话就会浪费很多时间,这说明了选择合理分支是很重要的,如何将这些众多的分支属性按照其价值大小排序就是我们要考虑的问题.而如何判定信息属性的价值就涉及到信息论的知识了,首先普及下数学概念.<br>
+信息是个抽象的概念,直到1948年，香农提出了“信息熵”的概念，才解决了对信息的量化度量问题.<br>
+信息熵的数学定义为:<br>
+<br><a href="J4.png" target="_blank"><img src="J4.png" alt="" style="max-width:100%;"></a></p>
+
+<p>条件熵的定义为:<br>
+<br><a href="J6.png" target="_blank"><img src="J6.png" alt="" style="max-width:100%;"></a></p>
+
+<p>信息增益的定义为<br>
+<br><a href="J5.png" target="_blank"><img src="J5.png" alt="" style="max-width:100%;"></a></p>
+
+<p>在这里我将主要介绍ID3及C4.5,先看ID3，<br>
+ID3算法的思想就是计算出每个属性的信息增益,把最大者作为分裂属性。<br>
+首先构造如下数据：<br>
+<br><a href="J7.png" target="_blank"><img src="J7.png" alt="" style="max-width:100%;"></a></p>
+
+<p>U1和U2都是条件维度，分别决定了是否购买，首先我们来算信息熵：<br>
+<br><a href="J8.png" target="_blank"><img src="J8.png" alt="" style="max-width:100%;"></a><br>
+<br>条件熵：<br>
+<br><a href="J9.png" target="_blank"><img src="J9.png" alt="" style="max-width:100%;"></a><br>
+<br><a href="J10.png" target="_blank"><img src="J10.png" alt="" style="max-width:100%;"></a><br>
+信息增益:<br>
+<br><a href="J11.png" target="_blank"><img src="J11.png" alt="" style="max-width:100%;"></a><br>
+<br><a href="J12.png" target="_blank"><img src="J12.png" alt="" style="max-width:100%;"></a></p>
+
+<p>由于Gains（U，U1）&lt;Gains（U，U2）,表示U2消除信源的不确定性更大，则会采用U2作为最佳分组变量。但是采用ID3算法时遇到类别值多的输入变量比类别值少的输入变量有更多的机会成为当前最佳分组变量时就会不精确了。为了消除这种情况，我们就更多的采用C4.5算法。C4.5中的信息增益定义为：</p>
+
+<p><a href="13.png" target="_blank"><img src="13.png" alt="" style="max-width:100%;"></a></p>
+
+<p>具体计算结果就不计算了。<br>
+接下来我用MLlib里面的DecisionTree算法写个例子测试下，DecisionTree可作回归也可作分类，如果是回归则调用trainRegressor方法，如果是分类就调用trainClassifier方法， 其中的数据为官方源码自带的sample_libsvm_data.txt数据，这个数据用的标准的libsvm格式，对很多算法都适用。<br>
+源码如下：<br>
+<br></p>
+
+<div class="highlight highlight-scala"><pre>
+<span class="pl-k">import</span> <span class="pl-v">org.apache.spark.mllib.linalg.</span><span class="pl-v">Vectors</span>
+<span class="pl-k">import</span> <span class="pl-v">org.apache.spark.</span>{<span class="pl-v">SparkContext</span>, <span class="pl-v">SparkConf</span>}
+
+<span class="pl-c">/**</span>
+<span class="pl-c"> * Created by kexu on 15-8-4.</span>
+<span class="pl-c"> */</span>
+
+
+<span class="pl-k">import</span> <span class="pl-v">org.apache.spark.mllib.tree.</span><span class="pl-v">DecisionTree</span>
+<span class="pl-k">import</span> <span class="pl-v">org.apache.spark.mllib.tree.model.</span><span class="pl-v">DecisionTreeModel</span>
+<span class="pl-k">import</span> <span class="pl-v">org.apache.spark.mllib.util.</span><span class="pl-v">MLUtils</span>
+
+<span class="pl-k">object</span> <span class="pl-en">mllibDecisionTreesTest</span> {     
+
+<span class="pl-k">def</span> <span class="pl-en">main</span>(<span class="pl-v">args</span>: <span class="pl-en">Array</span>[<span class="pl-k">String</span>]) {
+<span class="pl-k">val</span> <span class="pl-en">conf</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">SparkConf</span>().setAppName(<span class="pl-s"><span class="pl-pds">"</span>mllibDecisionTreesTest<span class="pl-pds">"</span></span>).setMaster(<span class="pl-s"><span class="pl-pds">"</span>local[2]<span class="pl-pds">"</span></span>)
+<span class="pl-k">val</span> <span class="pl-en">sc</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">SparkContext</span>(conf)
+<span class="pl-c">// Load and parse the data file.</span>
+<span class="pl-c">// val data = MLUtils.loadLibSVMFile(sc, "/home/kexu/下载/spark-1.4.1/data/mllib/sample_libsvm_data.txt")</span>
+<span class="pl-k">val</span> <span class="pl-en">data</span> <span class="pl-k">=</span><span class="pl-en">MLUtils</span>.loadLibSVMFile(sc,<span class="pl-s"><span class="pl-pds">"</span>/home/kexu/桌面/libsvm1<span class="pl-pds">"</span></span>)
+<span class="pl-c">// Split the data into training and test sets (30% held out for testing)</span>
+<span class="pl-k">val</span> <span class="pl-en">splits</span> <span class="pl-k">=</span> data.randomSplit(<span class="pl-en">Array</span>(<span class="pl-c1">0.7</span>, <span class="pl-c1">0.3</span>))
+<span class="pl-k">val</span> (trainingData, testData) <span class="pl-k">=</span> (splits(<span class="pl-c1">0</span>), splits(<span class="pl-c1">1</span>))
+
+<span class="pl-c">// 训练一个决策树模型</span>
+<span class="pl-c">//  空 categoricalFeaturesInfo 指示所有特征是连续的.</span>
+<span class="pl-k">val</span> <span class="pl-en">categoricalFeaturesInfo</span> <span class="pl-k">=</span> <span class="pl-en">Map</span>[<span class="pl-k">Int</span>, <span class="pl-k">Int</span>]()
+<span class="pl-k">val</span> <span class="pl-en">impurity</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">"</span>variance<span class="pl-pds">"</span></span>  <span class="pl-c">//方差</span>
+<span class="pl-k">val</span> <span class="pl-en">maxDepth</span> <span class="pl-k">=</span> <span class="pl-c1">5</span>   <span class="pl-c">//最大树深度</span>
+<span class="pl-k">val</span> <span class="pl-en">maxBins</span> <span class="pl-k">=</span> <span class="pl-c1">32</span>   <span class="pl-c">//最大的划分数</span>
+
+<span class="pl-c">//val model = DecisionTree.trainRegressor(trainingData, categoricalFeaturesInfo, impurity,</span>
+<span class="pl-c">// maxDepth, maxBins)</span>
+<span class="pl-k">val</span> <span class="pl-en">model</span> <span class="pl-k">=</span> <span class="pl-en">DecisionTree</span>.trainClassifier(trainingData, <span class="pl-c1">2</span>, categoricalFeaturesInfo,
+  <span class="pl-s"><span class="pl-pds">"</span>gini<span class="pl-pds">"</span></span>, maxDepth, maxBins)
+
+ <span class="pl-c">// 测试实例的评估模型和测试误差</span>
+ <span class="pl-k">val</span> <span class="pl-en">labelsAndPredictions</span> <span class="pl-k">=</span> testData.map { point <span class="pl-k">=&gt;</span>
+  <span class="pl-k">val</span> <span class="pl-en">prediction</span> <span class="pl-k">=</span> model.predict(point.features)
+  (point.label, prediction)
+}
+ <span class="pl-k">val</span> <span class="pl-en">testMSE</span> <span class="pl-k">=</span> labelsAndPredictions.map { <span class="pl-k">case</span> (v, p) <span class="pl-k">=&gt;</span> math.pow((v <span class="pl-k">-</span> p), <span class="pl-c1">2</span>) }.mean()
+ println(<span class="pl-s"><span class="pl-pds">"</span>Test Mean Squared Error = <span class="pl-pds">"</span></span> <span class="pl-k">+</span> testMSE)
+ println(<span class="pl-s"><span class="pl-pds">"</span>Learned regression tree model:<span class="pl-cce">\n</span><span class="pl-pds">"</span></span> <span class="pl-k">+</span> model.toDebugString)
+
+ <span class="pl-c">// Save and load model</span>
+ <span class="pl-c">// model.save(sc, "myModelPath3")</span>
+ <span class="pl-c">// val sameModel = DecisionTreeModel.load(sc, "myModelPath3")</span>
+
+ }
+}</pre></div>
+
+<p><br><br>
+这个例子是个回归算法，调用了trainRegressor，如果是写分类的话和这个类似，我们看一下输出</p>
+
+<p><br><a href="j2.png" target="_blank"><img src="j2.png" alt="" style="max-width:100%;"></a><br>
+<br></p>
+
+<p>其中的Test Mean Squared Error是均方差误差，下面的是决策树模型结构，显示出树的节点和深度信息等，一个If....Else表示一个分支。<br>
+MLlib中的决策树算法还有其它变种，有兴趣的朋友可以继续学习。</p>
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

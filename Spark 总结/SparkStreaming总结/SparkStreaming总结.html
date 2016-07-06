@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>spark-streaming</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>SparkStreaming总结</h1>
+<h3><div align="right">王炎</div></h3>
+<h3>1. 概述:</h3>
+<p>Spark Streaming类似于Apache Storm，用于流式数据的处理。根据其官方文档介绍，Spark Streaming有高吞吐量和容错能力强这两个特点。Spark Streaming支持的数据输入源很多，例如：Kafka、Flume、Twitter、ZeroMQ和简单的TCP套接字等等。数据输入后可以用Spark的高度抽象原语如：map、reduce、join、window等进行运算。而结果也能保存在很多地方，如HDFS，数据库等。另外Spark Streaming也能和<a href="http://spark.apache.org/docs/latest/mllib-guide.html">MLlib（机器学习）</a>以及<a href="http://spark.apache.org/docs/latest/graphx-programming-guide.html">Graphx</a>完美融合。</p>
+<p><img src="img/streaming-arch.png"/><p>
+<p>其内部工作方式如下：</p>
+<p><img src="img/streaming-flow.png"/><p>
+<p>上图基本原理就是将输入数据流以时间片（秒级）为单位进行拆分，然后以类似批处理的方式处理每个时间片数据。Spark Streaming是将流式计算分解成一系列短小的批处理作业。这里的批处理引擎是Spark，也就是把Spark Streaming的输入数据按照batch size（如1秒）分成一段一段的数据（Discretized Stream），每一段数据都转换成Spark中的RDD（Resilient Distributed Dataset），然后将Spark Streaming中对DStream的Transformation操作变为针对Spark中对RDD的Transformation操作，将RDD经过操作变成中间结果保存在内存中。整个流式计算根据业务的需求可以对中间的结果进行叠加，或者存储到外部设备。</p>
+<!--
+<pre><code>     
+     def main(args: Array[String]) {
+        val conf=new SparkConf().setAppName(&quot;flumeDemo&quot;).setMaster(&quot;local[*]&quot;)
+        val ssc=new StreamingContext(conf,Seconds(5))
+
+        import org.apache.spark.streaming.flume._
+        val flumeStream=FlumeUtils.createStream(ssc,&quot;master&quot;,9998)
+        //输出SparkFlumeEvent内容
+        flumeStream.map(e=&gt;new String(e.event.getBody.array)).print(100)
+        ssc.start
+        ssc.awaitTermination
+      }
+</code></pre>-->
+
+<h3>2. Spark Streaming 实时计算框架 </h3>
+<p> Spark Streaming是一种构建在Spark上的实时计算框架，它扩展了Spark处理大规模流式数据的能力。</p>
+<p>Spark Streaming的优势在于：</p>
+<p>&nbsp;&nbsp;&nbsp;能运行在100+结点上，并达到秒级延迟</p>
+<p>&nbsp;&nbsp;&nbsp;使用基于内存的Spark作为执行引擎,具有高效和容错的特性</p>
+<p>&nbsp;&nbsp;&nbsp;能集成Spark的批处理和交互查询</p>
+<p>&nbsp;&nbsp;&nbsp;为实现复杂的算法提供和批处理类似的简单接口</p>
+<h3>3. Spark Streaming编程模型</h3>
+<h4>3.1 Spark Streaming初始化</h4>
+<p>在开始进行DStream操作之前，需要对Spark Streaming进行初始化生成StreamingContext。</p>
+<pre><code>
+    //create a local StreamingContext with two working thread and batch interval of 1 second
+    //the master requires 2 core to prevent from a starvation scenario
+    val conf = new SparkConf().setAppName("sparkstreamdemo1").setMaster("local[*]")
+    val ssc = new StreamingContext(conf,Seconds(2))  
+</code></pre>
+<h4>3.2 Spark Streaming输入操作</h4>
+<p>目前Spark Streaming已支持了丰富的输入接口，大致分为两类：一类是磁盘输入，如以batch size作为时间间隔监控HDFS文件系统的某个目录，将目录内容的变化作为Spark Streaming的输入;另一类就是网络流的方式,目前支持<a href="https://kafka.apache.org/">Kafka</a>、<a href="http://flume.apache.org/">Flume</a>、<a href="http://aws.amazon.com/kinesis/">Kinesis</a>、<a href="#">Twitter</a>、<a href="http://zeromq.org/">ZeroMQ</a>、<a href="http://mqtt.org/">MOTT</a>和TCP socket.</p>
+<h5>3.2.1 Spark Streaming&HDFS</h5>
+<pre><code>
+  //从hdfs读取数据
+  val lines = ssc.textFileStream("hdfs://master:9000/in")
+</code></pre>
+<h5>3.2.2 Spark Streaming&TCP socket</h5>
+<pre><code>
+  //create a DStream that will connect hostname:port like hostname:9999
+  val lines=ssc.socketTextStream("localhost",9999)
+</code></pre>
+<h5>3.2.3 Spark Streaming&Kafka</h5>
+<pre><code>
+   def main(args: Array[String]) {
+    val zkQuorum="localhost:2181"
+    val groupId="1"
+    val topics="test"
+    val numThreads=2
+    val conf = new SparkConf().setAppName("sparkstreamkafkademo1").setMaster("local[*]")
+    val ssc = new StreamingContext(conf, Seconds(2))
+    ssc.checkpoint("checkpoint")
+
+    val topicMap = topics.split(" ").map((_, numThreads.toInt)).toMap
+    val messages = KafkaUtils.createStream(ssc,zkQuorum,groupId,topicMap)
+    val lines=messages.map(_._2)
+    val words = lines.flatMap(_.split(" "))
+    val wordCounts = words.map(x => (x, 1L)).reduceByKeyAndWindow(_ + _, _ - _, Minutes(10), Seconds(2), 2)
+    wordCounts.print()
+    ssc.start()
+    ssc.awaitTermination()
+  }
+</code></pre>
+<p>更详细的操作请点击<a href="spark-streaming&kafka.html">spark-streaming&kafka</a></p>
+<h5>3.2.4 Spark Streaming&Flume</h5>
+<pre><code>
+  def main(args: Array[String]) {
+    val conf = new SparkConf().setAppName("sparkstreamflumedemo1").setMaster("local[*]")
+    val ssc = new StreamingContext(conf,Seconds(5))
+
+    val flumeStream=FlumeUtils.createStream(ssc,"master",9998)
+    //输出SparkFlumeEvent内容
+    flumeStream.map(e=>new String(e.event.getBody.array)).print(100)
+    ssc.start()
+    ssc.awaitTermination()
+  }
+</code></pre>
+<p>更详细的操作请点击<a href="spark-streaming&flume.html">spark-streaming&flume</a></p>
+<p>其他数据源的操作还有待研究</p>
+<h4>3.3 Spark Streaming转换操作</h4>
+<p>与Spark RDD的操作极为类似，Spark Streaming也就是通过转换操作将一个或多个DStream转换成新的DStream。常用的操作包括map、filter、flatmap和join，以及需要进行shuffle操作的groupByKey/reduceByKey等.</p>
+<pre><code>
+   val conf = new SparkConf().setAppName("sparkstreamdemo1").setMaster("local[*]")
+   val ssc = new StreamingContext(conf,Seconds(2))
+   val lines=ssc.socketTextStream("localhost",9999)
+  //reduce方法
+  lines.flatMap(_.split(" ")).map(_.toInt).reduce(_+_).foreachRDD(_.foreach(println))
+
+  //countByValue方法
+  lines.flatMap(_.split(" ")).countByValue().foreachRDD(_.foreach(println))
+  
+  //join方法
+   val words1=lines.flatMap(_.split(" ")).map(word=>(word,1))
+   val words2=lines.flatMap(_.split(" ")).map(word=>(word,2))
+   words1.join(words2).print(20)
+
+  //cogroup方法
+   val words3=lines.flatMap(_.split(" ")).map(word=>(word,3))
+   val words4=lines.flatMap(_.split(" ")).map(word=>(word,4))
+   words3.cogroup(words4).print(20)
+
+  //reduceByKey方法
+  lines.flatMap(_.split(" ")).map(word=>(word,1)).reduceByKey(_+_).foreachRDD(_.foreach(println))
+  
+  //updateStateByKey方法
+  ssc.checkpoint("sparkstreamdemo1")//设置检查点
+  //定义更新函数
+  val addFunc=(currentValues:Seq[Int],preValueState:Option[Int]) => {
+  //通过Spark内部的reduceByKey按key规约
+  val currentCount=currentValues.sum
+  //已累加的值
+  val preCount = preValueState.getOrElse(0)
+  Some(currentCount+preCount)
+  }
+  lines.flatMap(_.split(" ")).map(word=>(word,1)).updateStateByKey[Int](addFunc).foreachRDD(_.foreach(println))
+</code></pre>
+<p>另外，Spark Streaming有特定的窗口操作，窗口操作涉及两个参数：一个是滑动窗口的宽度（Window Duration）；另一个是窗口滑动的频率（Slide Duration），这两个参数必须是batch size的倍数。</p>
+<pre><code>
+    //window方法
+    lines.flatMap(_.split(" ")).window(Seconds(30),Seconds(10)).print
+
+    //countByWindow方法
+    lines.flatMap(_.split(" ")).countByWindow(Seconds(30),Seconds(10)).print
+
+    //reduceByKeyAndWindow方法
+    lines.flatMap(_.split(" ")).map(w=>(w,1)).reduceByKeyAndWindow((a:Int,b:Int) => a+b,Seconds(30),Seconds(10))
+
+    //countByValueAndWindow方法
+    lines.flatMap(_.split(" ")).countByValueAndWindow(Seconds(30),Seconds(10)).print
+</code></pre>
+<h4>3.4 Spark Streaming输出操作</h4>
+<p>对于输出操作，Spark提供了将数据打印到屏幕及输入到文件中。</p>
+<pre><code>
+   //将DStream的内容为序列化对象并保存为SequenceFile文件
+   lines.saveAsObjectFiles("wordcount")
+
+   //保存此DStream的内容作为文本文件
+   lines.saveAsTextFiles("wordcount")
+</code></pre>
+<p>更多Spark Streaming的操作查看<a href="http://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.streaming.dstream.DStream">DStream文档</a></p>
+<h3>4. Spark Streaming应用场景</h3>
+<p>1.电子商务：需要处理并且挖掘用户行为产生的数据，产生推荐，从而带来更多的流量和收益。最理想的推荐就是根据兴趣推荐给用户本来不需要的东西！而每天处理海量的用户数据，需要一个低延时高可靠的实时流式分布式计算系统。</p>
+<p>2.新闻聚合:新闻时效性非常重要，如果在一个重大事情发生后能够实时的推荐给用户，那么肯定要依赖流计算。</p>
+<p>3.社交网站：大家每天都会区社交网站是为了看看现在发生了什么，周围认在做什么。流式计算可以把用户关注的热点聚合，实时反馈给用户，从而达到一个圈子的聚合效果。</p>
+<p>4.交通监管部门：每个城市的交通监管部门每天都要产生海量的视频数据，这些视频数据也是以流的形式源源不断的输系统中。实时流式计算系统需要以最快的速度来处理这些数据。</p>
+<p>5.数据挖掘和机器学习：它们实际上是互联网公司内部使用的系统，主要为线上服务提供数据支撑。它们可以说是互联网公司的最核心的平台之一。系统的效率是挖掘的关键，理想条件下就是每天产生的海量数据都能得到有效处理，对于原来的数据进行全量更新。</p>
+<p>6.大型集群的监控：自动化运维很重要，集群监控的实时预警机制也非常重要，而流式系统对于日志的实时处理，往往是监控系统的关键。</p>
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->

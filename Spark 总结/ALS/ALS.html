@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>ALS</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1><div align="center">ALS协同过滤算法</div></h1>
+<h3><div align="right">Lyen</div></h3>
+<h3>1.简介:</h3>
+<p>协同过滤常被应用于推荐系统，旨在补充用户-商品关联矩阵中所缺失的部分。MLlib当前支持基于模型的协同过滤，其中用户和商品通过一小组隐语义因子进行表达，并且这些因子也用于预测缺失的元素。Spark MLlib实现了交替最小二乘法 (ALS) 来学习这些隐性语义因子。在 MLlib 中的实现有如下的参数:</p>
+<pre><code>1.numBlocks 是用于并行化计算的分块个数 (设置为-1，为自动配置)。
+2.rank 是模型中隐语义因子的个数。
+   ps: (隐语义因子？)用户根据对物品的一些属性对物品的评价情况，比如用户买一个商品是因为它美观，实用        
+   那么美观，实用这两个因素就是模型中的隐语因子，即2个隐语因子隐语义模型其实就是用户
+   评价数据的因子分析，得到各个商品的主要因子，用的原理都是SVD(奇异值分解)
+3.iterations 是迭代的次数。
+4.lambda 是ALS的正则化参数。
+5. implicitPrefs 决定了是用显性反馈ALS的版本还是用适用隐性反馈数据集的版本。
+6.alpha 是一个针对于隐性反馈 ALS 版本的参数，这个参数决定了偏好行为强度的基准。
+</code></pre>
+
+<p>可以调整这些参数，不断优化结果，使均方差变小。比如：iterations越多，lambda较小，均方差会较小，推荐结果较优。</p>
+<h3>2.spark mllib中ALS算法的思想</h3>
+<p>a.ALS<a href="http://www.zhihu.com/question/31509438/answer/52268608">算法思想</a>详细介绍。</p>
+<p>b.举例说明:
+在接下来的例子中我们额定载荷数据。每一行包含一个用户、一个产品和一个评级。我们使用默认ALS.train()方法,假设评级是明确的。我们评估推荐模型评级预测均方误差的测量。代码如下：</p>
+<pre><code>    def main(args: Array[String]) {
+            val conf = new SparkConf().setAppName(&quot;ALS&quot;).setMaster(&quot;local&quot;)
+            val sc = new SparkContext(conf)
+            // 加载和解析数据文件
+            val data = sc.textFile(&quot;/home/lyen/conf/spark1.4/data/mllib/als/test.data&quot;)
+            val ratings = data.map(_.split(&quot;,&quot;)match{
+            case Array(user,item,rate) =&gt; Rating(user.toInt,item.toInt,rate.toDouble) })
+            //设置迭代次数
+            val numIterations = 20
+            //即将训练的RDD，rank值为10,迭代次数（numIterations），ALS的正则化参数。(目的是为了减小误差)
+            val model = ALS.train(ratings,10,numIterations,0.01)
+            //对模型进行评分
+            val userProducts = ratings.map({case Rating(user,product,rate) =&gt;(user,product)})
+            val predictions =model.predict(userProducts).map({caseRating(user,product,rate)=&gt;((user,product),rate)})
+            val ratesAndPreds = ratings.map({case Rating(user,product,rate)=&gt;((user,product),rate)}).join(predictions)
+            //MSE 均方差     ps:标准差²＝方差
+            val MSE = ratesAndPreds.map { case ((user, product), (r1, r2)) =&gt;       
+                         val err = (r1 - r2)                                                   
+                               err * err                                                             
+                         }.mean()                                                                
+           println(&quot;Mean Squared Error = &quot; + MSE) 
+           /*  均方差的第二种方式                              
+            val MSE = ratesAndPreds.map({case ((user,product),(r1,r2))=&gt;math.pow((r1-r2),2)}
+            ).reduce(_+_)/ ratesAndPreds.count()
+           println(&quot;Mean Squared Error = &quot; + MSE)
+           */
+            //用户推荐商品
+          //为每个用户进行推荐，推荐的结果可以以用户id为key
+            val users=data.map(_.split(&quot;,&quot;) match { case Array(user, product, rate) =&gt; (user)}).distinct().collect()
+            users.foreach(user =&gt; {
+            //依次为用户推荐商品
+            var rs = model.recommendProducts(user.toInt, numIterations)
+            var value = &quot;&quot;
+            var key = 0
+            //拼接推荐结果
+            rs.foreach(r =&gt; {
+            key = r.user
+            value = value + r.product + &quot;:&quot; + r.rating + &quot;,&quot;
+            })
+            println(key.toString+&quot;   &quot; + value)
+            //model的加载和保存
+            model.save(sc, &quot;myModelPath&quot;)
+            val sameModel = MatrixFactorizationModel.load(sc, &quot;myModelPath&quot;)
+      }  )
+  }
+</code></pre>
+
+<p>c.运行效果图：</p>
+<p>源数据：</p>
+<p><img src="img/002.png" /></p>
+<p>MSE 均方差</p>
+<p><img src="img/1.png" /> </p>
+<p>RMSE 均方根差</p>
+<p><img src="img/003.png" /></p>
+<p>1.<img src="img/01.png" /></p>
+<p>2.<img src="img/02.png" /></p>
+<p>3.<img src="img/03.png" /></p>
+<p>4.<img src="img/04.png" /></p>
+<p>5.<img src="img/001.png" /></p>
+<p>图1,2,3,4,5是1,2,3,4,5号用户对名个商品的预测评分，在数据量大的情况下可以根据其各个用户对每个商品的预测评分的高低中选出预测评分最高的几个商品作为对各个用户的推荐商品。比如在图5中5号用户只是对1号商品购买并进行了评分，而经过ALS算法根据相似计算预测出5号用户对2,3,4号商品的评分，这样我们可以根据5号用户所对应的2,3,4号商品的评分值中选取最高的预测的评分所对应的商品为5号用户推荐，即2号和4号商品。</p>
+<p>d.分析与总结</p>
+<p>通常用于推荐引擎评价的指标是称为最小均方根误差( RootMeanSquaredError, RMSE ) 指标 , 它首先计算均方误差的平均值然后取其平方根。如果评级在 1 星到 5 星这个范围内,而我们得到的 RMSE为 1.0, 那么就意味着我们的预测值和用户给出的真实评价相差了一个星级。  
+</p>
+<p>ALS算法的核心就是将稀疏评分矩阵分解为用户特征向量矩阵和产品特征向量矩阵的乘积交替使用最小二乘法逐步计算用户/产品特征向量，使得差平方和最小通过用户/产品特征向量的矩阵来预测某个用户对某个产品的评分 。       
+</p>
+<p>由于数学能力有限，在此并没有仔细说明LSA（最小二乘法）的计算方法，只是对这个算法怎么用做了简单介绍，对ALS协同过滤法的工作原理惊醒了剖析。ps:要想理解ALS，则应仔细阅读<a href="http://www.zhihu.com/question/31509438/answer/52268608">ALS思想</a>举例介绍（上边已提到过）,其中也包括对最小二乘法的详细计算介绍。</p>
+<h3>ALS算法应用</h3>
+<p>近十年来,推荐引擎对因特网用户而言已经不是什么新鲜事物了。 Amazon会根据顾客的购买历史向他们推荐物品, NEtflix会向其用户推荐电影,新闻网站会对用户推荐新闻报道,这样的例子还有很多很多。当然,有很多方法可以实现推荐功能,这里我们只使用一种称为协同过滤( collaborative filtering ) 的 方法。协同 过滤是通过将用户和其他用户的数据进行对比来实现推荐的。</p>
+<p>我们试图对某个用户喜欢的电影进行预测, 推荐引擎会发现有一部电影该用户还没看过。然 后 ,它就会计算该电影和用户看过的电影之间的相似度,如果其相似度很高,推荐算法就会认为用户喜欢这部电影。</p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
